@@ -1,0 +1,29 @@
+<style>
+    .menuBtn {
+        width:30%;
+        cursor:pointer;
+        float:left;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each = "category:${categories}" class = "menuBtn">
+    <a th:href = "@{/shopList(category = ${category.name})}">
+        <form action = "shopList" method="get">
+            <input type = "hidden" th:value = "${category.name}" id="category"/>
+            <img th:src = "${category.imgSrc}"/>
+            <p><input type = "submit" th:value = "${category.name}"/> </p>
+        </form>
+    </a>
+</div>
+
+
+</body>
+</html>
